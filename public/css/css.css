@@ -1,0 +1,18 @@
+.sideBar{
+    background-color: rgb(207, 243, 255);
+    color: rgb(255, 255, 255);
+    width: 300;
+}
+
+.btn{
+    color: white;
+}
+
+.modal{
+    color: rgb(0, 0, 0);
+}
+
+.container{
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+}
