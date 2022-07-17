@@ -48,7 +48,7 @@
                     <td>{{ $item->kategori->kat }}</td>
                     <td>{{ $item->kondisi_barang }}</td>
 
-                    <td>
+                    <td class="text-center">
                         @if (auth()->user()->level == 'admin')
                             <button type="button" class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal"
                                 data-bs-target="#editBarang{{ $item->id }}">
@@ -65,12 +65,18 @@
                         @endif
 
                         @if (auth()->user()->level == 'personil')
+                            @if ($item->sedangMeminjam())
+                                <button type="button" class="btn btn-sm btn-secondary mt-3" disabled>
+                                    <i class="fa-brands fa-artstation"></i> Menunggu persetujuan
+                                </button>
+                            @else
                             <form action="{{ route('pinjamBarang', $item->id) }}" method="post">
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-secondary mt-3">
-                                    <i class="fa-brands fa-artstation"></i>Pinjam
+                                    <i class="fa-brands fa-artstation"></i> Pinjam
                                 </button>
                             </form>
+                            @endif
                         @endif
                     </td>
 
@@ -78,7 +84,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Data kosong</td>
+                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Tidak ada barang tersedia</td>
                 </tr>
             @endforelse
 

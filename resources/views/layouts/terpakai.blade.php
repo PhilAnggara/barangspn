@@ -32,7 +32,7 @@
             </tr>
         </thead>
         <tbody class="table-body table-light">
-            @foreach ($kats as $item)
+            @forelse ($kats as $item)
                 <tr>
                     <th scope="row">{{ ++$i }}</th>
                     <td>{{ $item->jenis_barang }}</td>
@@ -58,7 +58,11 @@
                         @endif
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Tidak ada barang terpakai</td>
+                </tr>
+            @endforelse
 
         </tbody>
     </table>

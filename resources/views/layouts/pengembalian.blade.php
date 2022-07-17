@@ -38,7 +38,7 @@
                     <td>{{ $item->barang->kategori->kat }}</td>
 
                     <td>
-                        <form action="{{ route('approve', $item->id) }}" method="post">
+                        <form action="{{ route('approvePengembalian', $item->id) }}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-primary mt-3">
                                 <i class="fa-solid fa-check"></i> Setujui
@@ -50,7 +50,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Belum ada permintaan</td>
+                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Belum ada pengembalian</td>
                 </tr>
             @endforelse
 

@@ -40,7 +40,8 @@
                             <i class="bi bi-house-door-fill">
                             </i>
                         </svg>
-                        Beranda</a>
+                        Beranda
+                    </a>
                 </li>
                 @if (auth()->user()->level == 'admin')
                     <li class="nav-item">
@@ -48,7 +49,8 @@
                             <svg class="bi pe-none" width="4" height="20">
                                 <i class="fa-solid fa-list"></i>
                             </svg>
-                            Kategori</a>
+                            Kategori
+                        </a>
                     </li>
                 @endif
 
@@ -58,7 +60,8 @@
                             <i class="bi bi-clipboard2-data-fill"></i>
                             </i>
                         </svg>
-                        Daftar Barang</a>
+                        Daftar Barang
+                    </a>
                 </li>
                 @if (auth()->user()->level == 'admin')
                     <li class="nav-item">
@@ -67,7 +70,17 @@
                                 <i class="bi bi-bell-fill"></i>
                                 </i>
                             </svg>
-                            Permintaan</a>
+                            Permintaan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn {{ Request::is('pengembalian') ? 'text-primary' : '' }}" href="{{ route('pengembalian') }}">
+                            <svg class="bi pe-none" width="4" height="20">
+                                <i class="bi bi-bell-slash-fill"></i>
+                                </i>
+                            </svg>
+                            Pengembalian
+                        </a>
                     </li>
                 @endif
                 <li class="nav-item">
@@ -76,8 +89,19 @@
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </i>
                         </svg>
-                        Terpakai</a>
+                        Terpakai
+                    </a>
                 </li>
+                @if (auth()->user()->level == 'personil')
+                    <li class="nav-item">
+                        <a class="btn {{ Request::is('pinjaman-saya') ? 'text-primary' : '' }}" href="pinjaman-saya">
+                            <svg class="bi pe-none" width="4" height="20">
+                                <i class="fa-solid fa-inbox"></i>
+                            </svg>
+                            Pinjaman Saya
+                        </a>
+                    </li>
+                @endif
                 <br>
                 <br>
                 <br>

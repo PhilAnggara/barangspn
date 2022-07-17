@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user');
             $table->foreignId('id_barang');
-            $table->boolean('approve')->default(false);
+            $table->integer('status')->default(1); // 1. pinjam, 2. dipinjamkan, 3. kembalikan, 4. dikembalikan
             $table->timestamps();
         });
     }

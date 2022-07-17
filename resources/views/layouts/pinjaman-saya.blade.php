@@ -38,19 +38,25 @@
                     <td>{{ $item->barang->kategori->kat }}</td>
 
                     <td>
-                        <form action="{{ route('approve', $item->id) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-sm btn-primary mt-3">
-                                <i class="fa-solid fa-check"></i> Setujui
+                        @if ($item->status == 2)
+                            <form action="{{ route('kembalikan', $item->id) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-secondary mt-3">
+                                    <i class="fa-brands fa-artstation"></i> Kembalikan
+                                </button>
+                            </form>
+                        @else
+                            <button type="button" class="btn btn-sm btn-secondary mt-3" disabled>
+                                <i class="fa-brands fa-artstation"></i> Menunggu persetujuan
                             </button>
-                        </form>
+                        @endif
                     </td>
 
 
                 </tr>
             @empty
                 <tr>
-                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Belum ada permintaan</td>
+                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Belum ada pinjaman</td>
                 </tr>
             @endforelse
 

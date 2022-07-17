@@ -35,7 +35,13 @@ Route::post('/inputBarang',[BarangController::class, 'store'])->middleware('auth
 Route::post('/pinjamBarang/{id}',[TransaksiController::class, 'store'])->middleware('auth')->name('pinjamBarang');
 Route::get('/permintaan',[TransaksiController::class, 'permintaan'])->middleware('auth')->name('permintaan');
 Route::post('/permintaan/{id}',[TransaksiController::class, 'approve'])->middleware('auth')->name('approve');
+
+Route::get('/pengembalian',[TransaksiController::class, 'pengembalian'])->middleware('auth')->name('pengembalian');
+Route::post('/pengembalian/{id}',[TransaksiController::class, 'approvePengembalian'])->middleware('auth')->name('approvePengembalian');
+
 Route::get('/terpakai',[BarangController::class, 'terpakai'])->middleware('auth')->name('terpakai');
+Route::get('/pinjaman-saya',[TransaksiController::class, 'pinjamanSaya'])->middleware('auth')->name('pinjaman-saya');
+Route::post('/permintaan/kembalikan/{id}',[TransaksiController::class, 'kembalikan'])->middleware('auth')->name('kembalikan');
 
 // Route::get('/editBarang{id}',[BarangController::class, 'viewUpdate'])->middleware('auth')->name('editBarang');
 // Route::post('/editBarang/{id}',[BarangController::class, 'viewUpdate'])->middleware('auth')->name('editBarang');

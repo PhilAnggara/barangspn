@@ -19,4 +19,19 @@ class Barang extends Model
     public function kategori(){
         return $this->belongsTo(kategori::class);
     }
+
+    public function transaksi(){
+        return $this->hasMany(Transaksi::class, 'id_barang', 'id');
+    }
+
+    public function sedangMeminjam()
+    {
+        $transaksi = Transaksi::where('id_user', auth()->user()->id)->where('id_barang', $this->id)->get()->last();
+        if ($transaksi && $transaksi->status == 1) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
 }
