@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_user');
+            $table->foreignId('id_barang');
+            $table->boolean('approve')->default(false);
             $table->timestamps();
         });
     }

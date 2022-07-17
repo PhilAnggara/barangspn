@@ -15,15 +15,6 @@
         </div>
     @endif
 
-    @if (auth()->user()->level == 'admin')
-        {{--  <button type="button" class="btn btn-sm btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#inputBarang{{ $kategori->kat }}">
-            <i class="fa-solid fa-keyboard"></i> Input Barang  --}}
-        {{--  </button>  --}}
-        <a class="btn btn-sm btn-primary mt-5" href="/inputBarang">
-            <i class="fa-solid fa-keyboard"></i> Input Barang
-        </a>
-    @endif
-
 
 
 
@@ -35,11 +26,13 @@
             <th scope="col">DESKRIPSI</th>
             <th scope="col">KATEGORI</th>
             <th scope="col">KONDISI</th>
-            <th scope="col">ACTION</th>
+            @if (auth()->user()->level == 'admin')
+                <th scope="col">ACTION</th>
+            @endif
             </tr>
         </thead>
         <tbody class="table-body table-light">
-            @forelse ($kats as $item)
+            @foreach ($kats as $item)
                 <tr>
                     <th scope="row">{{ ++$i }}</th>
                     <td>{{ $item->jenis_barang }}</td>
@@ -63,24 +56,11 @@
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         @endif
-
-                        @if (auth()->user()->level == 'personil')
-                            <form action="{{ route('pinjamBarang', $item->id) }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-sm btn-secondary mt-3">
-                                    <i class="fa-brands fa-artstation"></i>Pinjam
-                                </button>
-                            </form>
-                        @endif
                     </td>
 
 
                 </tr>
-            @empty
-                <tr>
-                    <td colspan="10" class="text-center fw-lighter fst-italic my-5">Data kosong</td>
-                </tr>
-            @endforelse
+            @endforeach
 
         </tbody>
     </table>

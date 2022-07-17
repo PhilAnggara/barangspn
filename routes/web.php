@@ -3,6 +3,7 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,12 @@ Route::get('/barang',[BarangController::class, 'index'])->middleware('auth');
 // Route::post('/barang',[BarangController::class, 'store'])->middleware('auth');
 Route::get('/inputBarang',[BarangController::class, 'create'])->middleware('auth');
 Route::post('/inputBarang',[BarangController::class, 'store'])->middleware('auth');
+
+Route::post('/pinjamBarang/{id}',[TransaksiController::class, 'store'])->middleware('auth')->name('pinjamBarang');
+Route::get('/permintaan',[TransaksiController::class, 'permintaan'])->middleware('auth')->name('permintaan');
+Route::post('/permintaan/{id}',[TransaksiController::class, 'approve'])->middleware('auth')->name('approve');
+Route::get('/terpakai',[BarangController::class, 'terpakai'])->middleware('auth')->name('terpakai');
+
 // Route::get('/editBarang{id}',[BarangController::class, 'viewUpdate'])->middleware('auth')->name('editBarang');
 // Route::post('/editBarang/{id}',[BarangController::class, 'viewUpdate'])->middleware('auth')->name('editBarang');
 

@@ -35,7 +35,7 @@
             <hr class="mt-3">
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="btn" href="/">
+                    <a class="btn {{ Request::is('home') ? 'text-primary' : '' }}" href="/">
                         <svg class="bi pe-none" width="4" height="20">
                             <i class="bi bi-house-door-fill">
                             </i>
@@ -44,7 +44,7 @@
                 </li>
                 @if (auth()->user()->level == 'admin')
                     <li class="nav-item">
-                        <a class="btn" href="kategori">
+                        <a class="btn {{ Request::is('kategori') ? 'text-primary' : '' }}" href="kategori">
                             <svg class="bi pe-none" width="4" height="20">
                                 <i class="fa-solid fa-list"></i>
                             </svg>
@@ -53,15 +53,25 @@
                 @endif
 
                 <li class="nav-item">
-                    <a class="btn" href="barang">
+                    <a class="btn {{ Request::is('barang') ? 'text-primary' : '' }}" href="barang">
                         <svg class="bi pe-none" width="4" height="20">
                             <i class="bi bi-clipboard2-data-fill"></i>
                             </i>
                         </svg>
                         Daftar Barang</a>
                 </li>
+                @if (auth()->user()->level == 'admin')
+                    <li class="nav-item">
+                        <a class="btn {{ Request::is('permintaan') ? 'text-primary' : '' }}" href="{{ route('permintaan') }}">
+                            <svg class="bi pe-none" width="4" height="20">
+                                <i class="bi bi-bell-fill"></i>
+                                </i>
+                            </svg>
+                            Permintaan</a>
+                    </li>
+                @endif
                 <li class="nav-item">
-                    <a class="btn" href="barang">
+                    <a class="btn {{ Request::is('terpakai') ? 'text-primary' : '' }}" href="terpakai">
                         <svg class="bi pe-none" width="4" height="20">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </i>

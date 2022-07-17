@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('kondisi_barang');
             $table->foreignId('kategori_id');
+            $table->boolean('tersedia')->default(true);
             $table->timestamps();
         });
     }

@@ -11,9 +11,17 @@ class BarangController extends Controller
     public function index(Request $request){
         // $items= barang::all();
         // $ktgr = kategori::find();
-        $kats = Barang::with('kategori')->latest()->paginate();
+        $kats = Barang::with('kategori')->where('tersedia', 1)->latest()->paginate();
         $pagination = 5;
         return view('layouts.barang', compact('kats'))->with('i', ($request->input('page', 1) - 1) * $pagination);
+    }
+    
+    public function terpakai(Request $request){
+        // $items= barang::all();
+        // $ktgr = kategori::find();
+        $kats = Barang::with('kategori')->where('tersedia', 0)->latest()->paginate();
+        $pagination = 5;
+        return view('layouts.terpakai', compact('kats'))->with('i', ($request->input('page', 1) - 1) * $pagination);
     }
 
     public function create(){
