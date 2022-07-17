@@ -33,9 +33,9 @@
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0">KATEGORI</h5>
                                             <span class="h2 font-weight-bold mb-0">
-                                                {{ $item->id }}. {{ $item->kat }}</span>
+                                                {{ $loop->iteration }}. {{ $item->kat }}</span>
                                             <button type="button" class="btn btn-sm btn-danger mt-1" data-bs-toggle="modal"
-                                                data-bs-target="#hapusKategori{{ $item->id }} }}">
+                                                data-bs-target="#hapusKategori{{ $item->id }}">
                                                 <i class="fa-solid fa-trash-can"></i> hapus kategori
                                             </button>
                                         </div>

@@ -57,8 +57,6 @@
                             </button>
                         @endif
                     </td>
-
-
                 </tr>
             @endforeach
 

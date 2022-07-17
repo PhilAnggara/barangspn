@@ -1,5 +1,3 @@
-
-@foreach ($ktgr as $ktgr)
 <div class="modal fade" id="inputKategori" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -37,7 +35,6 @@
         </div>
     </div>
 </div>
-@endforeach
 
 
 {{-- hapus dataa --}}
@@ -52,7 +49,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center">
-                        <i class="fal fa-exclamation-circle fa-7x"></i>
+                        <i class="fa-solid fa-circle-exclamation fa-7x"></i>
                         <h4 class="heading mt-4">Hapus Data! {{ $item->nama_barang }}</h4>
                         <p>Anda yakin ingin menghapus data ? <b></b>?</p>
                     </div>

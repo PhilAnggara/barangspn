@@ -56,5 +56,4 @@
 
         </tbody>
     </table>
-    {{-- @include('modals.modals') --}}
 @endsection

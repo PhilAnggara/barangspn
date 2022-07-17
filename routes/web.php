@@ -43,7 +43,7 @@ Route::get('/terpakai',[BarangController::class, 'terpakai'])->middleware('auth'
 Route::post('/editBarang/{id}',[BarangController::class, 'update'])->middleware('auth')->name('update');
 
 Route::post('/hapusBarang/{id}',[BarangController::class, 'hapus'])->middleware('auth')->name('hapus');
-Route::post('/hapusKategori/{id}',[BarangController::class, 'hapusKategori'])->middleware('auth')->name('hapusKategori');
+Route::post('/hapusKategori/{id}',[KategoriController::class, 'hapusKategori'])->middleware('auth')->name('hapusKategori');
 
 Route::get('/kategori', [KategoriController::class, 'index'])->middleware('auth')->name('index');
 Route::post('/kategori', [KategoriController::class, 'store'])->middleware('auth')->name('store');

@@ -41,7 +41,7 @@ class KategoriController extends Controller
 
     public function hapusKategori(Request $request, $id){
         $ktgr = Kategori::findorfail($id);
-        $ktgr -> dalete($request->all());
+        $ktgr->delete();
 
         if($request){
             return redirect('/kategori')->with('hapus', 'data berhasil dihapus');
